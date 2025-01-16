@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
         startButton.setOnClickListener {
+            startButton.text = "Running"
+            startButton.isEnabled = false
             progressBar.progress = 1
             resultTextView.text = ""
             startCoroutines()
@@ -87,5 +89,7 @@ class MainActivity : AppCompatActivity() {
         ).show()
         resultTextView.text = results.joinToString("\n")
         progressBar.progress = 100
+        startButton.text = "START COROUTINES"
+        startButton.isEnabled = true
     }
 }
